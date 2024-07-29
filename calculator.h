@@ -23,7 +23,7 @@ public:
         QFont font = opt.font;
         font.setPointSize(18); 
         painter->setFont(font);
-		painter->setPen(QColor(0, 0, 153)); 
+	painter->setPen(QColor(0, 0, 153)); 
         painter->save();
         painter->drawText(opt.rect, opt.displayAlignment, index.data().toString());
         painter->restore();
