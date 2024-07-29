@@ -35,11 +35,10 @@ Calculator::Calculator(QWidget *parent)
        "}"
        );
 	
-	Button *changeSignButton = createButton(tr("\u2212"), &Calculator::changeSignClicked);
+    Button *changeSignButton = createButton(tr("\u2212"), &Calculator::changeSignClicked);
     changeSignButton->setStyleSheet(
        "QToolButton {"
 	   "font: bold;background-color: navy;color: yellow;font-size: 36px;height: 48px;width: 120px;"
-
        "    background-color: darkblue; "
        "    color: white; "
        "}"
@@ -66,7 +65,7 @@ Calculator::Calculator(QWidget *parent)
        "}"
        );
 	
-	Button *timesButton = createButton(tr("\303\227"), &Calculator::productOperatorClicked);
+    Button *timesButton = createButton(tr("\303\227"), &Calculator::productOperatorClicked);
     timesButton->setStyleSheet(
        "QToolButton {"	
 	   "font: bold;background-color: navy;color: yellow;font-size: 36px;height: 48px;width: 120px;"
@@ -92,7 +91,7 @@ Calculator::Calculator(QWidget *parent)
        "}"
        );
 		
-	Button *plusButton = createButton(tr("+"), &Calculator::SumOperatorClicked);
+    Button *plusButton = createButton(tr("+"), &Calculator::SumOperatorClicked);
     plusButton->setStyleSheet(
        "QToolButton {"
 	   "font: bold;background-color: navy;color: yellow;font-size: 36px;height: 48px;width: 120px;"
@@ -120,7 +119,7 @@ Calculator::Calculator(QWidget *parent)
        );
 	  
     Button *powerButton = createButton(tr("x\302\262"), &Calculator::unaryOperatorClicked);   
-	powerButton->setStyleSheet(
+    powerButton->setStyleSheet(
        "QToolButton {"
 	   "font: bold;background-color: navy;color: yellow;font-size: 36px;height: 48px;width: 120px;"
        "    background-color: darkblue; "
@@ -132,8 +131,8 @@ Calculator::Calculator(QWidget *parent)
        "}"
        );
 	
-	Button *reciprocalButton = createButton(tr("1/x"), &Calculator::unaryOperatorClicked);
-	reciprocalButton->setStyleSheet(
+     Button *reciprocalButton = createButton(tr("1/x"), &Calculator::unaryOperatorClicked);
+     reciprocalButton->setStyleSheet(
        "QToolButton {"
 	"font: bold;background-color: navy;color: yellow;font-size: 36px;height: 48px;width: 120px;"
        "    background-color: darkblue;"
@@ -145,8 +144,8 @@ Calculator::Calculator(QWidget *parent)
        "}"
        );
 	
-	Button *equalButton = createButton(tr("="), &Calculator::equalClicked);
-	equalButton->setStyleSheet(
+    Button *equalButton = createButton(tr("="), &Calculator::equalClicked);
+    equalButton->setStyleSheet(
        "QToolButton {"
 	   "font: bold;background-color: navy;color: yellow;font-size: 36px;height: 48px;width: 120px;"
        "    background-color: darkblue;"
@@ -158,7 +157,7 @@ Calculator::Calculator(QWidget *parent)
        "}"
        );
 	
-	QGridLayout *mainLayout = new QGridLayout;
+    QGridLayout *mainLayout = new QGridLayout;
     listWidget->setFixedHeight(40);
     listWidget->setViewMode(QListView::IconMode);  
     listWidget->setFlow(QListView::LeftToRight);   
@@ -170,7 +169,7 @@ Calculator::Calculator(QWidget *parent)
     mainLayout->addWidget(listWidget, 0, 0, 1, 5);
     mainLayout->addWidget(display, 0, 0, 1, 5);
     mainLayout->addWidget(backspaceButton, 1, 0, 1, 2);
-	mainLayout->addWidget(clearAllButton, 1, 2, 1, 2);
+    mainLayout->addWidget(clearAllButton, 1, 2, 1, 2);
     mainLayout->addWidget(squareRootButton, 2, 0);
     mainLayout->addWidget(powerButton, 3, 0);
     mainLayout->addWidget(reciprocalButton, 4, 0);
@@ -190,7 +189,6 @@ Calculator::Calculator(QWidget *parent)
     setLayout(mainLayout);
     setWindowTitle(tr("Calculator"));
 }
-
 
 void Calculator::digitClicked()
 {
@@ -214,10 +212,10 @@ void Calculator::unaryOperatorClicked()
     Button *clickedButton = qobject_cast<Button *>(sender());
     QString clickedOperator = clickedButton->text();
     double operand = display->text().toDouble();
-	QListWidgetItem *newItem = new QListWidgetItem(clickedOperator);
-	listWidget->addItem(newItem);
+    QListWidgetItem *newItem = new QListWidgetItem(clickedOperator);
+    listWidget->addItem(newItem);
     double operand2 = newItem->text().toDouble();
-	double result ;
+    double result ;
     if (clickedOperator == tr("Sqrt")) {    
 		result = std::sqrt(operand);
     } else if (clickedOperator == tr("x\302\262")) {
